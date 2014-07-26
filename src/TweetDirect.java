@@ -23,7 +23,6 @@ public class TweetDirect {
     List<String[]> dataTwo = new ArrayList<String[]>();
     Scanner readIn = new Scanner(System.in);
     String fileOne = "", fileTwo = "";
-    String test = "Test";
     
     System.out.print("Please enter first file name: ");
     fileOne = readIn.nextLine();
