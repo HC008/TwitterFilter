@@ -19,8 +19,8 @@ public class TweetDirect {
   public static void main(String[] args) {
     
     Processor process = new Processor();
-    List<String[]> dataOne = new ArrayList<String[]>();
-    List<String[]> dataTwo = new ArrayList<String[]>();
+    List<TweetRecord> dataOne = new ArrayList<TweetRecord>();
+    List<TweetRecord> dataTwo = new ArrayList<TweetRecord>();
     Scanner readIn = new Scanner(System.in);
     String fileOne = "", fileTwo = "";
     
