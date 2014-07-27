@@ -69,23 +69,39 @@ public class Processor {
    */
   public void checkDuplicate(List<TweetRecord> csvOne, List<TweetRecord> csvTwo) {
     int small = 0, large = 0;
+    List<TweetRecord> filtered = new ArrayList<TweetRecord>();
     
-    //Test which file size is smaller than the other.
+    //Test which file size is smaller than the other and then compare it in two separate loops
     if (csvOne.size() < csvTwo.size()) {
+      //First file is smaller than second file
       small = csvOne.size();
       large = csvTwo.size();
       
       for (int i = 0; i < small; i++) {
         for (int j = 0; j < large; j++) {
           if (csvOne.get(i).getText().equals(csvTwo.get(j).getText())) {
-            
-          }
-        }
-      }
+            if (csvOne.get(i).getName().equals(csvTwo.get(j).getName())) {
+              
+            } //end inner-inner if statement
+          } //end if statement
+        } //end inner for loop
+      } //end for loop
+      
     }
     else {
+      //Second file is smaller than first file
       small = csvTwo.size();
       large = csvOne.size();
+      
+      for (int m = 0; m < small; m++) {
+        for (int n = 0; n < large; n++) {
+          if (csvTwo.get(m).getText().equals(csvOne.get(n).getText())) {
+            if (csvTwo.get(m).getName().equals(csvOne.get(n).getName())) {
+              
+            } //end inner-inner if statement
+          } //end if statement
+        } //end inner for loop
+      } //end for loop
     }   
   }
   
