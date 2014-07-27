@@ -62,47 +62,59 @@ public class Processor {
   
   
   /**
-   * To compare the data if there are any duplicates in comments.
+   * To compare which file has the most lines of data before.
    * 
    * @param csvOne - first file.
    * @param csvTwo - second file.
    */
-  public void checkDuplicate(List<TweetRecord> csvOne, List<TweetRecord> csvTwo) {
+  public void checkFileSize(List<TweetRecord> csvOne, List<TweetRecord> csvTwo) {
     int small = 0, large = 0;
-    List<TweetRecord> filtered = new ArrayList<TweetRecord>();
+    List<TweetRecord> nonDuplicate = new ArrayList<TweetRecord>();
     
     //Test which file size is smaller than the other and then compare it in two separate loops
-    if (csvOne.size() < csvTwo.size()) {
+    if (csvOne.size() < csvTwo.size() || csvOne.size() == csvTwo.size()) {
       //First file is smaller than second file
       small = csvOne.size();
       large = csvTwo.size();
       
-      for (int i = 0; i < small; i++) {
-        for (int j = 0; j < large; j++) {
-          if (csvOne.get(i).getText().equals(csvTwo.get(j).getText())) {
-            if (csvOne.get(i).getName().equals(csvTwo.get(j).getName())) {
-              
-            } //end inner-inner if statement
-          } //end if statement
-        } //end inner for loop
-      } //end for loop
+    
       
     }
     else {
       //Second file is smaller than first file
       small = csvTwo.size();
       large = csvOne.size();
-      
-      for (int m = 0; m < small; m++) {
-        for (int n = 0; n < large; n++) {
-          if (csvTwo.get(m).getText().equals(csvOne.get(n).getText())) {
-            if (csvTwo.get(m).getName().equals(csvOne.get(n).getName())) {
-              
-            } //end inner-inner if statement
-          } //end if statement
-        } //end inner for loop
-      } //end for loop
-    }   
+    } 
+  }
+  
+  /**
+   * Checks for duplicate comments in the data then filtered into a list.
+   * 
+   * @param less - the file with less content.
+   * @param more - the file with more content.
+   * @param filtered - for storing the filtered out data.
+   * @param little - small file size.
+   * @param big - larger file size.
+   * 
+   * @return filtered - the data that contains both time difference duplicates and non duplicates.
+   */
+  public List<TweetRecord> checkDuplicate(List<TweetRecord> less, List<TweetRecord> more, 
+                                            List<TweetRecord> filtered, int little, int big) {
+    
+    for (int i = 0; i < little; i++) {
+      for (int j = 0; j < big; j++) {
+        
+        if (less.get(i).getText().equals(more.get(j).getText())) {
+          if (less.get(i).getName().equals(more.get(j).getName())) {
+            //Check for the date or something
+          }
+        }
+        
+      }
+    }
+    
+    return filtered;
+    
   }
   
 }
