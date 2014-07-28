@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
@@ -37,6 +38,7 @@ public class Processor {
         data.add(nextLine);
       }
       
+      
       while (lineNumber >= 3 && lineNumber < data.size() - 1) {
         tweets.add(new TweetRecord(data.get(lineNumber)[0], data.get(lineNumber)[1], 
                                    data.get(lineNumber)[2], data.get(lineNumber)[3],
@@ -44,7 +46,10 @@ public class Processor {
                                    data.get(lineNumber)[6], data.get(lineNumber)[7],
                                    data.get(lineNumber)[8]));
         
+        lineNumber++;
       }
+      
+      lineNumber = 0;
       
     }
     catch (FileNotFoundException e) {
@@ -67,7 +72,7 @@ public class Processor {
    * @param csvOne - first file.
    * @param csvTwo - second file.
    */
-  public void checkFileSize(List<TweetRecord> csvOne, List<TweetRecord> csvTwo) {
+  public List<TweetRecord> checkFileSize(List<TweetRecord> csvOne, List<TweetRecord> csvTwo) {
     int small = 0, large = 0;
     List<TweetRecord> nonDuplicate = new ArrayList<TweetRecord>();
     
@@ -77,14 +82,17 @@ public class Processor {
       small = csvOne.size();
       large = csvTwo.size();
       
-    
-      
+      nonDuplicate = checkDuplicate(csvOne, csvTwo, nonDuplicate, small, large);
     }
     else {
       //Second file is smaller than first file
       small = csvTwo.size();
       large = csvOne.size();
+      
+      nonDuplicate = checkDuplicate(csvTwo, csvOne, nonDuplicate, small, large);
     } 
+    
+    return nonDuplicate;
   }
   
   /**
@@ -106,7 +114,7 @@ public class Processor {
         
         if (less.get(i).getText().equals(more.get(j).getText())) {
           if (less.get(i).getName().equals(more.get(j).getName())) {
-            //Check for the date or something
+            SimpleDateFormat dateTime = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
           }
         }
         

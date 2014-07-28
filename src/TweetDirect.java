@@ -33,6 +33,7 @@ public class TweetDirect {
     dataOne = process.readCsv(dataOne, fileOne);
     dataTwo = process.readCsv(dataTwo, fileTwo);
     
+    
     System.out.println("\nFirst file size " + dataOne.size() + 
                         " Second file size " + dataTwo.size());
 
