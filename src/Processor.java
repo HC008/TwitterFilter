@@ -38,7 +38,7 @@ public class Processor {
         data.add(nextLine);
       }
       
-      while (lineNumber >= 3 && lineNumber < data.size() - 1) {
+      while (lineNumber >= 3 && lineNumber < data.size() - 2) {
         tweets.add(new TweetRecord(data.get(lineNumber)[0], data.get(lineNumber)[1], 
                                    data.get(lineNumber)[2], data.get(lineNumber)[3],
                                    data.get(lineNumber)[4], data.get(lineNumber)[5],
