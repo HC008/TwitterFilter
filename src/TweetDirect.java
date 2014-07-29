@@ -33,7 +33,6 @@ public class TweetDirect {
     dataOne = process.readCsv(dataOne, fileOne);
     dataTwo = process.readCsv(dataTwo, fileTwo);
     
-    
     for (int i = 0; i < dataTwo.size(); i++) {
       System.out.println(dataTwo.get(i).toString() + "");
     }
