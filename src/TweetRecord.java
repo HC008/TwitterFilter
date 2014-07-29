@@ -6,7 +6,7 @@
  */
 public class TweetRecord {
   
-  private String date;
+  private String tweetDate;
   private String handle; 
   private String name; 
   private String text; 
@@ -19,7 +19,7 @@ public class TweetRecord {
   /**
    * Constructing the lines of information.
    * 
-   * @param data
+   * @param tweetDate
    * @param handle
    * @param name
    * @param text
@@ -29,10 +29,10 @@ public class TweetRecord {
    * @param retweetCount
    * @param favoriteCount
    */
-  public TweetRecord(String data, String handle, String name, String text, String url, 
+  public TweetRecord(String tweetDate, String handle, String name, String text, String url, 
                         String platform, String type, String retweetCount, String favoriteCount ) {
     
-    this.date = data; 
+    this.tweetDate = tweetDate; 
     this.handle = handle; 
     this.name = name; 
     this.text = text; 
@@ -45,183 +45,175 @@ public class TweetRecord {
   }
   
   /**
-   * Retrieves when the comment was posted.
+   * Retrieves the date that the tweet was submitted.
    * 
-   * @return date - the date of the comment.
+   * @return tweetDate - date of the tweet.
    */
-  public String getDate() {
-    
-    return date; 
+  public String getTweetDate() {
+    return tweetDate;
   }
   
   /**
-   * Sets a new date for the comment
+   * New date of the tweet that was submitted.
    * 
-   * @param dateVal - date
+   * @param tweetDate - date of the tweet.
    */
-  public void setDate(String dateVal) {
-    
-    this.date = dateVal; 
+  public void setTweetDate(String tweetDate) {
+    this.tweetDate = tweetDate;
   }
   
   /**
+   * Retrieves that handle data 
    * 
-   * @return handle
+   * @return handle - hash tags.
    */
   public String getHandle() {
-    
-    return handle; 
+    return handle;
   }
-  
+
   /**
+   * New handle of the tweet that was submitted 
    * 
-   * @param handleVal
+   * @param handle - hash tags.
    */
-  public void setHandle(String handleVal) {
-    
-    this.handle = handleVal; 
+  public void setHandle(String handle) {
+    this.handle = handle;
   }
-  
+
   /**
+   * Retrieves the user tweets 
    * 
-   * @return name - name of the person who submitted the comment.
+   * @return name - username.
    */
   public String getName() {
-    
-    return name; 
+    return name;
   }
-  
-  public void setName(String nameVal) {
-    
-    this.name = nameVal; 
-  }
-  
+
   /**
-   * The comment made by the user.
+   * Name user of the tweet that was submitted. 
+   * 
+   * @param name - username.
+   */
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  /**
+   * Retrieves the tweet comments. 
    * 
    * @return text - comment.
    */
   public String getText() {
-    
-    return text; 
+    return text;
   }
-  
+
   /**
-   * Replace the previous comment with the new comment.
+   * New comments of the tweets that was submitted. 
    * 
-   * @param textVal - comment.
+   * @param text - comment.
    */
-  public void setText(String textVal) {
-    
-    this.text = textVal; 
+  public void setText(String text) {
+    this.text = text;
   }
-  
+
   /**
-   * Address from the page where the user submitted their comments.
+   * Retrieves the address of the tweet. 
    * 
-   * @return url - address of the site where the comment was made.
+   * @return url - link to the tweet.
    */
-  public String getURL() {
-    
-    return url; 
+  public String getUrl() {
+    return url;
   }
-  
+
   /**
-   * Another address if the comment changes.
+   * New address to the tweet 
    * 
-   * @param urlVal - new address.
+   * @param url - link to the tweet.
    */
-  public void setURL(String urlVal) {
-    
-    this.url = urlVal;
+  public void setUrl(String url) {
+    this.url = url;
   }
-  
+
   /**
-   * Type of product used in submitting the comment.
+   * Retrieves the information of the type of the device that the users used.
    * 
-   * @return platform - the type of product.
+   * @return platform - type of device. 
    */
   public String getPlatform() {
-    
-    return platform; 
+    return platform;
   }
-  
+
   /**
-   * Another type of product.
+   *The information about the type of product that the users used.
    * 
-   * @param platformVal - type of product.
+   * @param platform - type of device.
    */
-  public void setPlatform(String platformVal) {
-    
-    this.platform = platformVal; 
+  public void setPlatform(String platform) {
+    this.platform = platform;
   }
-  
+
   /**
-   * Status of the comment if it was made before or just a new one.
+   * Retrieves status of the comment such as if it is New, Retweet etc.
    * 
-   * @return type - the status of the comment.
+   * @return type - status of the comment. 
    */
   public String getType() {
-    
-    return type; 
+    return type;
   }
   
   /**
-   * Different type of status for the comment.
+   * New status of the comment 
    * 
-   * @param typeVal - a new type of comment.
+   * @param type - status of the comment.
    */
-  public void setType(String typeVal) {
-    
-    this.type = typeVal; 
+  public void setType(String type) {
+    this.type = type;
   }
-  
+
   /**
-   * Amount of times the person re-submitted the comment.
+   * Retrieves the amount of time that the tweet got reused. 
    * 
-   * @return retweetCount - comment remade times.
+   * @return retweetCount - amount of time that the tweet got reused. 
    */
   public String getRetweetCount() {
-    
-    return retweetCount; 
+    return retweetCount;
   }
-  
+
   /**
-   * A new amount of times the user re-submitted the comment.
+   * New number of amount of time the tweet got reused.
    * 
-   * @param retweetCntVal - comment remade times.
+   * @param retweetCount - amount of time that the tweet got reused.
    */
-  public void setRetweetCount(String retweetCntVal) {
-    
-    this.retweetCount = retweetCntVal; 
+  public void setRetweetCount(String retweetCount) {
+    this.retweetCount = retweetCount;
   }
   
   /**
-   * The amount of people who deemed this comment as their favorite.
+   * Retrieves amount people that like the comment.
    * 
-   * @return favoriteCount - amount of people liking it.
+   * @return favoriteCount - amount of likes.
    */
   public String getFavoriteCount() {
-    
-    return favoriteCount; 
+    return favoriteCount;
   }
   
   /**
+   * New amount of people who liked the tweet.
    * 
-   * @param favoriteCntVal - amount of people liking it.
+   * @param favoriteCount - amount of likes.
    */
-  public void setFavoriteCount(String favoriteCntVal) {
-    
-    this.favoriteCount = favoriteCntVal; 
+  public void setFavoriteCount(String favoriteCount) {
+    this.favoriteCount = favoriteCount;
   }
-  
+
+  @Override
   /**
-   * Print out whole line of data.
+   * Prints out the whole line of data.
    */
   public String toString() {
-    
-    return getDate() + ", " + getHandle() + ", " + getName() + ", " + getText() + ", " + getURL() + ", " + 
-           getPlatform() + ", " + getType() + ", " + getRetweetCount() + ", " + getFavoriteCount(); 
-    
+    return getTweetDate() + "  " + getHandle() + "  " + getName() + "  " + getText() + "  " +
+           getUrl() + "  " + getPlatform() + "  " + getType() + "  " + 
+           getRetweetCount() + "  " + getFavoriteCount();
   }
+ 
 }
