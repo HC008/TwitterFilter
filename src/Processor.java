@@ -110,29 +110,22 @@ public class Processor {
     //Checks which one is duplicate and flag it to not be included in the final data.
     for (int i = 0; i < little; i++) {
       for (int j = 0; j < big; j++) {
-        if (more.get(j).equals(less.get(i)) && more.get(j).getCheckBefore() == 1) {
-          less.get(i).setFlag(1);
-        }
-        else if (more.get(j).equals(less.get(i)) && more.get(j).getFlag() == 0) {
+        
+        if (more.get(j).equals(less.get(i)) && more.get(j).getFlag() == 0) {
          more.get(j).setFlag(1);
-         more.get(j).setCheckBefore(1);
-         
         }
       } //end of inner for loop
     } //end of outer for loop
     
     
-    for (int n = 0; n < big; n++) {
-      if (more.get(n).getFlag() == 0) {
-        filtered.add(more.get(n));
-      }
-    }
+    filtered = less;
     
     for (int m = 0; m < little; m++) {
       if (less.get(m).getFlag() == 0) {
         filtered.add(less.get(m));
       }
     }
+    
     
     return filtered;
     

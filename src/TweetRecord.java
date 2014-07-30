@@ -16,7 +16,6 @@ public class TweetRecord implements Comparable<TweetRecord>{
   private String retweetCount; 
   private String favoriteCount; 
   private int flag;
-  private int checkBefore;
   
  
   /**
@@ -44,9 +43,7 @@ public class TweetRecord implements Comparable<TweetRecord>{
     this.type = type; 
     this.retweetCount = retweetCount; 
     this.favoriteCount = favoriteCount; 
-    flag = 0;
-    checkBefore = 0;
-    
+    flag = 0;    
   }
   
 
@@ -230,23 +227,6 @@ public class TweetRecord implements Comparable<TweetRecord>{
     this.flag = flag;
   }
   
-  /**
-   * Tells you if it was checked before.
-   * 
-   * @return checkBefore - if the line was check before.
-   */
-  public int getCheckBefore() {
-    return checkBefore;
-  }
-
-  /**
-   * New indicator if the comment was checked before.
-   * 
-   * @param checkBefore - if the line was check before.
-   */
-  public void setCheckBefore(int checkBefore) {
-    this.checkBefore = checkBefore;
-  }
   
   @Override
   /**
