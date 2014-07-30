@@ -1,7 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import au.com.bytecode.opencsv.CSVReader;
@@ -107,19 +106,29 @@ public class Processor {
    */
   public List<TweetRecord> checkDuplicate(List<TweetRecord> less, List<TweetRecord> more, 
                                             List<TweetRecord> filtered, int little, int big) {
-    
+
+    //Checks which one is duplicate and flag it to not be included in the final data.
     for (int i = 0; i < little; i++) {
       for (int j = 0; j < big; j++) {
         
-        if (less.get(i).getText().equals(more.get(j).getText())) {
-          if (less.get(i).getName().equals(more.get(j).getName())) {
-            SimpleDateFormat dateTime = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-            
-          }
+        if (more.get(j).equals(less.get(i)) && more.get(j).getFlag() == 0) {
+         more.get(j).setFlag(1);
         }
         
+      } //end of inner for loop
+    } //end of outer for loop
+    
+    
+    for (int m = 0; m < little; m++) {
+      filtered.add(less.get(m));
+    }
+    
+    for (int n = 0; n < big; n++) {
+      if (more.get(n).getFlag() == 0) {
+        filtered.add(more.get(n));
       }
     }
+ 
     
     return filtered;
     

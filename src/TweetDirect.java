@@ -21,6 +21,8 @@ public class TweetDirect {
     Processor process = new Processor();
     List<TweetRecord> dataOne = new ArrayList<TweetRecord>();
     List<TweetRecord> dataTwo = new ArrayList<TweetRecord>();
+    List<TweetRecord> allData = new ArrayList<TweetRecord>();
+    
     Scanner readIn = new Scanner(System.in);
     String fileOne = "", fileTwo = "";
     
@@ -33,10 +35,12 @@ public class TweetDirect {
     dataOne = process.readCsv(dataOne, fileOne);
     dataTwo = process.readCsv(dataTwo, fileTwo);
     
-    for (int i = 0; i < dataTwo.size(); i++) {
-      System.out.println(dataTwo.get(i).toString() + "");
+    allData = process.checkFileSize(dataOne, dataTwo);
+    int temp = 1;
+    for (int i = 0; i < allData.size(); i++) {
+      System.out.println(temp + ". " + allData.get(i).toString() + "");
+      temp++;
     }
-
   }
   
 }

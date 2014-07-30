@@ -4,7 +4,7 @@
  * @author Hansen Cheng and Micah Angeles
  *
  */
-public class TweetRecord {
+public class TweetRecord implements Comparable<TweetRecord>{
   
   private String tweetDate;
   private String handle; 
@@ -15,7 +15,7 @@ public class TweetRecord {
   private String type; 
   private String retweetCount; 
   private String favoriteCount; 
-  
+  private int flag;
   /**
    * Constructing the lines of information.
    * 
@@ -41,9 +41,11 @@ public class TweetRecord {
     this.type = type; 
     this.retweetCount = retweetCount; 
     this.favoriteCount = favoriteCount; 
+    flag = 0;
     
   }
   
+
   /**
    * Retrieves the date that the tweet was submitted.
    * 
@@ -205,7 +207,69 @@ public class TweetRecord {
   public void setFavoriteCount(String favoriteCount) {
     this.favoriteCount = favoriteCount;
   }
-
+  
+  /**
+   * Represents the signal to remove the comment from the file.
+   * 
+   * @return flag - signal.
+   */
+  public int getFlag() {
+    return flag;
+  }
+  
+  /**
+   * Gives a value so it signals to remove the comment.
+   * 
+   * @param flag - signal.
+   */
+  public void setFlag(int flag) {
+    this.flag = flag;
+  }
+  
+  @Override
+  /**
+   * Checks equality of the object.
+   */
+  public boolean equals(Object obj) {
+    if (obj == this) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    
+    TweetRecord other = (TweetRecord) obj;
+    if (other.getTweetDate().equals(this.getTweetDate()) &&
+        other.getHandle().equals(this.getHandle()) && 
+        other.getName().equals(this.getName()) && other.getText().equals(this.getText()) && 
+        other.getUrl().equals(this.getUrl()) && other.getPlatform().equals(this.getPlatform()) &&
+        other.getType().equals(this.getType()) && 
+        other.getRetweetCount().equals(this.getRetweetCount()) &&
+        other.getFavoriteCount().equals(this.getFavoriteCount())) {
+      
+      return true; 
+    }
+    else {
+      return false;
+    }
+  }
+  
+  @Override
+  /**
+   * Comparing by dates to sort it.
+   */
+  public int compareTo(TweetRecord rec) {
+    if (rec == this) {
+      return 0;
+    }
+    else {
+      return this.getTweetDate().compareTo(rec.getTweetDate());
+    }
+  }
+  
   @Override
   /**
    * Prints out the whole line of data.
@@ -215,5 +279,7 @@ public class TweetRecord {
            getUrl() + "  " + getPlatform() + "  " + getType() + "  " + 
            getRetweetCount() + "  " + getFavoriteCount();
   }
+
+  
  
 }
