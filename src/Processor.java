@@ -119,9 +119,7 @@ public class Processor {
     } //end of outer for loop
     
     
-    for (int m = 0; m < little; m++) {
-      filtered.add(less.get(m));
-    }
+    filtered = less;
     
     for (int n = 0; n < big; n++) {
       if (more.get(n).getFlag() == 0) {
