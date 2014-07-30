@@ -16,6 +16,8 @@ public class TweetRecord implements Comparable<TweetRecord>{
   private String retweetCount; 
   private String favoriteCount; 
   private int flag;
+  
+ 
   /**
    * Constructing the lines of information.
    * 
