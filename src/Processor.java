@@ -120,6 +120,7 @@ public class Processor {
     } //end of outer for loop
     
     
+    //Loading all of the data into  the list
     filtered = less;
     
     for (int m = 0; m < big; m++) {
