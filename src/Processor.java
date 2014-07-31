@@ -37,6 +37,7 @@ public class Processor {
         data.add(nextLine);
       }
       
+      //Creating the object while reading the lines of data from the file
       while (lineNumber >= 3 && lineNumber < data.size() - 2) {
         tweets.add(new TweetRecord(data.get(lineNumber)[0], data.get(lineNumber)[1], 
                                    data.get(lineNumber)[2], data.get(lineNumber)[3],
@@ -74,7 +75,7 @@ public class Processor {
     int small = 0, large = 0;
     List<TweetRecord> nonDuplicate = new ArrayList<TweetRecord>();
     
-    //Test which file size is smaller than the other and then compare it in two separate loops
+    //Test which file size is smaller than the other and then call a method to check for duplicate
     if (csvOne.size() < csvTwo.size() || csvOne.size() == csvTwo.size()) {
       //First file is smaller than second file
       small = csvOne.size();
@@ -120,9 +121,9 @@ public class Processor {
     
     filtered = less;
     
-    for (int m = 0; m < little; m++) {
-      if (less.get(m).getFlag() == 0) {
-        filtered.add(less.get(m));
+    for (int m = 0; m < big; m++) {
+      if (more.get(m).getFlag() == 0) {
+        filtered.add(more.get(m));
       }
     }
     

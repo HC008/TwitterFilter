@@ -244,6 +244,8 @@ public class TweetRecord implements Comparable<TweetRecord>{
     }
     
     TweetRecord other = (TweetRecord) obj;
+    
+    //Check equality based on the attributes of each line of data
     if (other.getTweetDate().equals(this.getTweetDate()) &&
         other.getHandle().equals(this.getHandle()) && 
         other.getName().equals(this.getName()) && other.getText().equals(this.getText()) && 
